@@ -44,6 +44,7 @@ CREATE TABLE Emprestimo (
     status_emprestimo VARCHAR (20)
 );
 
+/*Aluno*/
 
 INSERT INTO Aluno (nome, sobrenome, data_nascimento, endereco, email, celular) 
 VALUES 
@@ -72,7 +73,7 @@ VALUES
 ('André', 'Mendes', '2001-12-22', 'Rua das Acácias, 606', 'andre.mendes@email.com', '16989987654'),
 ('Sofia', 'Martins', '2003-09-18', 'Rua dos Coqueiros, 707', 'sofia.martins@email.com', '16988876543');
 
-
+/*Livro*/
 
 INSERT INTO Livro (titulo, autor, editora, ano_publicacao, isbn, quant_total, quant_disponivel, valor_aquisicao, status_livro_emprestado) 
 VALUES 
@@ -101,6 +102,7 @@ VALUES
 ('O Diário de Anne Frank', 'Anne Frank', 'Editora Record', '1947', '978-8501101924', 12, 12, 60.00, 'Disponível'),
 ('Fahrenheit 451', 'Ray Bradbury', 'Editora Record', '1953', '978-8501062149', 8, 8, 70.00, 'Disponível');
 
+/*Emprestimo*/
 
 INSERT INTO Emprestimo (id_aluno, id_livro, data_emprestimo, data_devolucao, status_emprestimo) 
 VALUES 
