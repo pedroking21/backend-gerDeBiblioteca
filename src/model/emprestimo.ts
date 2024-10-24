@@ -1,92 +1,71 @@
-// Classe Emprestimo
-class Emprestimo {
-  // Atributos privados que representam as características de um empréstimo
-  private idEmprestimo: number; // ID único do empréstimo
-  private dataEmprestimo: Date; // Data em que o empréstimo foi realizado
-  private dataDevolucao: Date; // Data em que o livro deve ser devolvido
-  private statusEmprestimo: string; // Status do empréstimo (ex: ativo, devolvido, atrasado)
-  private aluno: Aluno; // Uma referência a um objeto Aluno associado ao empréstimo
-  private livro: Livro; // Uma referência a um objeto Livro associado ao empréstimo
+export class Emprestimo {
 
-  // Construtor para inicializar os atributos do empréstimo
-  constructor(
-      idEmprestimo: number, // ID do empréstimo recebido como parâmetro
-      dataEmprestimo: Date, // Data de empréstimo recebida como parâmetro
-      dataDevolucao: Date, // Data de devolução recebida como parâmetro
-      statusEmprestimo: string, // Status do empréstimo recebido como parâmetro
-      aluno: Aluno, // Objeto Aluno associado ao empréstimo recebido como parâmetro
-      livro: Livro // Objeto Livro associado ao empréstimo recebido como parâmetro
-  ) {
-      // Inicializa os atributos da classe com os valores recebidos
-      this.idEmprestimo = idEmprestimo; // Atribui o ID do empréstimo
-      this.dataEmprestimo = dataEmprestimo; // Atribui a data do empréstimo
-      this.dataDevolucao = dataDevolucao; // Atribui a data de devolução
-      this.statusEmprestimo = statusEmprestimo; // Atribui o status do empréstimo
-      this.aluno = aluno; // Atribui o objeto Aluno
-      this.livro = livro; // Atribui o objeto Livro
-  }
+    private idEmprestimo: number = 0; // Identificador único para o empréstimo
+    private idAluno: number; // Identificador do aluno que fez o empréstimo
+    private idLivro: number; // Identificador do livro emprestado
+    private dataEmprestimo: Date; // Data em que o empréstimo foi feito
+    private dataDevolucao: Date; // Data prevista para a devolução do livro
+    private statusEmprestimo: string; // Status atual do empréstimo (ex: ativo, devolvido)
 
-  // Métodos Getters para acessar os atributos privados
+    constructor(
+        idAluno: number,
+        idLivro: number,
+        dataEmprestimo: Date,
+        dataDevolucao: Date,
+        statusEmprestimo: string
+    ) {
+        this.idAluno = idAluno;
+        this.idLivro = idLivro;
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
+        this.statusEmprestimo = statusEmprestimo;
+    }
 
-  public getIdEmprestimo(): number {
-      // Retorna o ID do empréstimo
-      return this.idEmprestimo;
-  }
+    public getIdEmprestimo(): number {
+        return this.idEmprestimo; // Retorna o ID do empréstimo
+    }
 
-  public getDataEmprestimo(): Date {
-      // Retorna a data em que o empréstimo foi realizado
-      return this.dataEmprestimo;
-  }
+    public setIdEmprestimo(idEmprestimo: number): void {
+        this.idEmprestimo = idEmprestimo; // Define um novo ID para o empréstimo
+    }
 
-  public getDataDevolucao(): Date {
-      // Retorna a data de devolução do livro
-      return this.dataDevolucao;
-  }
+    public getIdAluno(): number {
+        return this.idAluno; // Retorna o ID do aluno
+    }
 
-  public getStatusEmprestimo(): string {
-      // Retorna o status do empréstimo
-      return this.statusEmprestimo;
-  }
+    public setIdAluno(idAluno: number): void {
+        this.idAluno = idAluno; // Atualiza o ID do aluno
+    }
 
-  public getAluno(): Aluno {
-      // Retorna o objeto Aluno associado ao empréstimo
-      return this.aluno;
-  }
+    public getIdLivro(): number {
+        return this.idLivro; // Retorna o ID do livro
+    }
 
-  public getLivro(): Livro {
-      // Retorna o objeto Livro associado ao empréstimo
-      return this.livro;
-  }
+    public setIdLivro(idLivro: number): void {
+        this.idLivro = idLivro; // Atualiza o ID do livro
+    }
 
-  // Métodos Setters para modificar os atributos privados
+    public getDataEmprestimo(): Date {
+        return this.dataEmprestimo; // Retorna a data do empréstimo
+    }
 
-  public setIdEmprestimo(idEmprestimo: number): void {
-      // Atualiza o ID do empréstimo com o novo valor
-      this.idEmprestimo = idEmprestimo;
-  }
+    public setDataEmprestimo(dataEmprestimo: Date): void {
+        this.dataEmprestimo = dataEmprestimo; // Atualiza a data do empréstimo
+    }
 
-  public setDataEmprestimo(dataEmprestimo: Date): void {
-      // Atualiza a data do empréstimo com o novo valor
-      this.dataEmprestimo = dataEmprestimo;
-  }
+    public getDataDevolucao(): Date {
+        return this.dataDevolucao; // Retorna a data de devolução
+    }
 
-  public setDataDevolucao(dataDevolucao: Date): void {
-      // Atualiza a data de devolução com o novo valor
-      this.dataDevolucao = dataDevolucao;
-  }
+    public setDataDevolucao(dataDevolucao: Date): void {
+        this.dataDevolucao = dataDevolucao; // Atualiza a data de devolução
+    }
 
-  public setStatusEmprestimo(statusEmprestimo: string): void {
-      // Atualiza o status do empréstimo com o novo valor
-      this.statusEmprestimo = statusEmprestimo;
-  }
+    public getStatusEmprestimo(): string {
+        return this.statusEmprestimo; // Retorna o status do empréstimo
+    }
 
-  public setAluno(aluno: Aluno): void {
-      // Atualiza o objeto Aluno associado ao empréstimo
-      this.aluno = aluno;
-  }
-
-  public setLivro(livro: Livro): void {
-      // Atualiza o objeto Livro associado ao empréstimo
-      this.livro = livro;
-  }
+    public setStatusEmprestimo(statusEmprestimo: string): void {
+        this.statusEmprestimo = statusEmprestimo; // Atualiza o status do empréstimo
+    }
 }

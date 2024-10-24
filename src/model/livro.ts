@@ -1,91 +1,139 @@
-class Livro {
-  // Atributos privados que representam as características de um livro
-  private idLivro: number; // ID único do livro
-  private titulo: string; // Título do livro
-  private autor: string; // Autor do livro
-  private editora: string; // Editora do livro
-  private anoPublicacao: string; // Ano de publicação do livro
-  private isbn: string; // ISBN do livro (número padrão internacional)
-  private quantTotal: number; // Quantidade total de cópias do livro
-  private quantDisponivel: number; // Quantidade de cópias disponíveis para empréstimo
-  private valorAquisicao: number; // Valor de aquisição do livro
-  private statusLivro: string; // Status do livro (ex: disponível, emprestado, reservado)
+export class Livro {
 
-  // Construtor para inicializar os atributos do livro
-  constructor(
-      idLivro: number, // ID do livro recebido como parâmetro
-      titulo: string, // Título do livro recebido como parâmetro
-      autor: string, // Autor do livro recebido como parâmetro
-      editora: string, // Editora do livro recebida como parâmetro
-      anoPublicacao: string, // Ano de publicação recebido como parâmetro
-      isbn: string, // ISBN do livro recebido como parâmetro
-      quantTotal: number, // Quantidade total de cópias recebida como parâmetro
-      quantDisponivel: number, // Quantidade disponível recebida como parâmetro
-      valorAquisicao: number, // Valor de aquisição recebido como parâmetro
-      statusLivro: string // Status do livro recebido como parâmetro
-  ) {
-      // Inicializa os atributos da classe com os valores recebidos
-      this.idLivro = idLivro; // Atribui o ID do livro
-      this.titulo = titulo; // Atribui o título do livro
-      this.autor = autor; // Atribui o autor do livro
-      this.editora = editora; // Atribui a editora do livro
-      this.anoPublicacao = anoPublicacao; // Atribui o ano de publicação do livro
-      this.isbn = isbn; // Atribui o ISBN do livro
-      this.quantTotal = quantTotal; // Atribui a quantidade total de cópias do livro
-      this.quantDisponivel = quantDisponivel; // Atribui a quantidade disponível do livro
-      this.valorAquisicao = valorAquisicao; // Atribui o valor de aquisição do livro
-      this.statusLivro = statusLivro; // Atribui o status do livro
-  }
+    private idLivro: number = 0;
+    private titulo: string;
+    private autor: string;
+    private editora: string;
+    private anoPublicacao: string;
+    private isbn: string;
+    private quantTotal: number;
+    private quantDisponivel: number;
+    private valorAquisicao: number;
+    private statusLivroEmprestado: string;
 
-  // Métodos Getters para acessar os atributos privados
+    // Construtor da classe Livro que inicializa os atributos com valores fornecidos
+    constructor(
+        titulo: string,               // Título do livro
+        autor: string,                // Autor do livro
+        editora: string,              // Editora responsável pela publicação
+        anoPublicacao: string,        // Ano de publicação do livro
+        isbn: string,                 // Código ISBN do livro
+        quantTotal: number,           // Total de exemplares do livro
+        quantDisponivel: number,      // Quantidade disponível para empréstimo
+        valorAquisicao: number,       // Valor de aquisição do livro
+        statusLivroEmprestado: string  // Status se o livro está emprestado
+    ) {
+        // Inicializa os atributos com os valores recebidos no construtor
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editora = editora;
+        this.anoPublicacao = anoPublicacao;
+        this.isbn = isbn;
+        this.quantTotal = quantTotal;
+        this.quantDisponivel = quantDisponivel;
+        this.valorAquisicao = valorAquisicao;
+        this.statusLivroEmprestado = statusLivroEmprestado;
+    }
 
-  public getIdLivro(): number {
-      // Retorna o ID do livro
-      return this.idLivro;
-  }
+    // Métodos para acessar e modificar os atributos do livro
 
-  public getTitulo(): string {
-      // Retorna o título do livro
-      return this.titulo;
-  }
+    // Retorna o identificador do livro
+    public getIdLivro(): number {
+        return this.idLivro;
+    }
 
-  public getAutor(): string {
-      // Retorna o autor do livro
-      return this.autor;
-  }
+    // Define um novo identificador para o livro
+    public setIdLivro(idLivro: number): void {
+        this.idLivro = idLivro;
+    }
 
-  public getEditora(): string {
-      // Retorna a editora do livro
-      return this.editora;
-  }
+    // Retorna o título do livro
+    public getTitulo(): string {
+        return this.titulo;
+    }
 
-  public getAnoPublicacao(): string {
-      // Retorna o ano de publicação do livro
-      return this.anoPublicacao;
-  }
+    // Define um novo título para o livro
+    public setTitulo(titulo: string): void {
+        this.titulo = titulo;
+    }
 
-  public getIsbn(): string {
-      // Retorna o ISBN do livro
-      return this.isbn;
-  }
+    // Retorna o autor do livro
+    public getAutor(): string {
+        return this.autor;
+    }
 
-  public getQuantTotal(): number {
-      // Retorna a quantidade total de cópias do livro
-      return this.quantTotal;
-  }
+    // Define um novo autor para o livro
+    public setAutor(autor: string): void {
+        this.autor = autor;
+    }
 
-  public getQuantDisponivel(): number {
-      // Retorna a quantidade de cópias disponíveis do livro
-      return this.quantDisponivel;
-  }
+    // Retorna a editora do livro
+    public getEditora(): string {
+        return this.editora;
+    }
 
-  public getValorAquisicao(): number {
-      // Retorna o valor de aquisição do livro
-      return this.valorAquisicao;
-  }
+    // Define uma nova editora para o livro
+    public setEditora(editora: string): void {
+        this.editora = editora;
+    }
 
-  public getStatusLivro(): string {
-      // Retorna o status do livro
-      return this.statusLivro;
-  }
+    // Retorna o ano de publicação do livro
+    public getAnoPublicacao(): string {
+        return this.anoPublicacao;
+    }
+
+    // Define um novo ano de publicação para o livro
+    public setAnoPublicacao(anoPublicacao: string): void {
+        this.anoPublicacao = anoPublicacao;
+    }
+
+    // Retorna o ISBN do livro
+    public getIsbn(): string {
+        return this.isbn;
+    }
+
+    // Define um novo ISBN para o livro
+    public setIsbn(isbn: string): void {
+        this.isbn = isbn;
+    }
+
+    // Retorna a quantidade total de exemplares do livro
+    public getQuantTotal(): number {
+        return this.quantTotal;
+    }
+
+    // Define uma nova quantidade total de exemplares para o livro
+    public setQuantTotal(quantTotal: number): void {
+        this.quantTotal = quantTotal;
+    }
+
+    // Retorna a quantidade disponível de exemplares para empréstimo
+    public getQuantDisponivel(): number {
+        return this.quantDisponivel;
+    }
+
+    // Define uma nova quantidade disponível de exemplares para o livro
+    public setQuantDisponivel(quantDisponivel: number): void {
+        this.quantDisponivel = quantDisponivel;
+    }
+
+    // Retorna o valor de aquisição do livro
+    public getValorAquisicao(): number {
+        return this.valorAquisicao;
+    }
+
+    // Define um novo valor de aquisição para o livro
+    public setValorAquisicao(valorAquisicao: number): void {
+        this.valorAquisicao = valorAquisicao;
+    }
+
+    // Retorna o status de empréstimo do livro (se está emprestado ou não)
+    public getStatusLivroEmprestado(): string {
+        return this.statusLivroEmprestado;
+    }
+
+    // Define o status de empréstimo do livro
+    public setStatusLivroEmprestado(statusLivroEmprestado: string): void {
+        this.statusLivroEmprestado = statusLivroEmprestado;
+    }
 }
